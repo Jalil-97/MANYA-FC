@@ -1,0 +1,111 @@
+{
+    "torneo": {
+        "nombre": "Liga Amateur 2025",
+        "tabla_posiciones": [
+            {
+                "equipo": "Manya FC",
+                "pj": 10,
+                "pg": 8,
+                "pe": 1,
+                "pp": 1,
+                "gf": 25,
+                "gc": 10,
+                "pts": 50
+            },
+            {
+                "equipo": "Rivales FC",
+                "pj": 10,
+                "pg": 6,
+                "pe": 2,
+                "pp": 2,
+                "gf": 18,
+                "gc": 12,
+                "pts": 20
+            },
+            {
+                "equipo": "Amigos FC",
+                "pj": 10,
+                "pg": 5,
+                "pe": 3,
+                "pp": 2,
+                "gf": 15,
+                "gc": 10,
+                "pts": 18
+            },
+            {
+                "equipo": "Manya FC",
+                "pj": 10,
+                "pg": 8,
+                "pe": 1,
+                "pp": 1,
+                "gf": 25,
+                "gc": 10,
+                "pts": 50
+            },
+            {
+                "equipo": "Rivales FC",
+                "pj": 10,
+                "pg": 6,
+                "pe": 2,
+                "pp": 2,
+                "gf": 18,
+                "gc": 12,
+                "pts": 20
+            },
+            {
+                "equipo": "Amigos FC",
+                "pj": 10,
+                "pg": 5,
+                "pe": 3,
+                "pp": 2,
+                "gf": 15,
+                "gc": 10,
+                "pts": 18
+            },
+            {
+                "equipo": "Manya FC",
+                "pj": 10,
+                "pg": 8,
+                "pe": 1,
+                "pp": 1,
+                "gf": 25,
+                "gc": 10,
+                "pts": 50
+            },
+            {
+                "equipo": "Rivales FC",
+                "pj": 10,
+                "pg": 6,
+                "pe": 2,
+                "pp": 2,
+                "gf": 18,
+                "gc": 12,
+                "pts": 20
+            },
+            {
+                "equipo": "Amigos FC",
+                "pj": 10,
+                "pg": 5,
+                "pe": 3,
+                "pp": 2,
+                "gf": 15,
+                "gc": 10,
+                "pts": 18
+            }
+        ]
+    },
+    "goleadores": [
+        {
+            "nombre": "Axel Farias",
+            "goles": 0
+        },
+        {
+            "nombre": "Agustin Gazzaneo",
+            "goles": 0
+        },
+        {
+            "nombre": "Patricio Gargaglione",
+            "goles": 0
+        }
+    ]
+}
