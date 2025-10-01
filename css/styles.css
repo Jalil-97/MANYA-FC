@@ -1,278 +1,328 @@
-/* ========== VARIABLES DE COLOR ========== */
+/* --------------------
+BASE
+-------------------- */
 :root {
-    --manya-amarillo: #FFD700;
-    --manya-negro: #000000;
-    --manya-blanco: #FFFFFF;
-    --fuente-principal: 'Arial', sans-serif;
+    --black: #000;
+    --bg-nav: #111;
+    --yellow: #ffd200;
+    --white: #fff;
 }
 
-/* ========== RESET Y BODY ========== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    color: #fff;
-    position: relative;
-    min-height: 100vh;
-    background: url("../img/herosection.jpg") no-repeat center center/cover;
-    padding-top: 70px;
-    background-size: cover;
-    /* Que ocupe toda la pantalla */
-    background-position: center;
-    /* Centrada */
-    background-attachment: fixed;
-    /* Hace que quede fija */
-    background-repeat: no-repeat;
+    font-family: 'Poppins', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Overlay desvanecido encima del background */
-body::before {
-    content: "";
-    position: fixed;
-    /* fijo para que cubra todo al hacer scroll */
+/* Navbar */
+.navbar {
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    /* negro semi-transparente */
+    background: var(--bg-nav);
+    padding: 0.8rem 1rem;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--yellow);
+    font-weight: 600;
+    transition: color 0.25s ease, transform 0.15s;
+}
+
+.navbar a:hover {
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* Hero — Parallax + overlay */
+.hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-image: url("../img/herosectionv2.jpg");
+    /* poné tu imagen en /img/fondo.jpg */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* efecto "la imagen queda fija" en desktop */
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    /* oscurece la imagen */
     z-index: 0;
 }
 
-/* Aseguramos que todo el contenido esté por encima del overlay */
-body>* {
+.hero-content {
     position: relative;
     z-index: 1;
-}
-
-
-/* ========== NAVBAR ========== */
-.navbar {
-    background-color: var(--manya-negro) !important;
-}
-
-.navbar-brand {
-    color: var(--manya-amarillo) !important;
-    font-weight: bold;
-    font-size: 1.5rem;
     display: flex;
     align-items: center;
+    gap: 1.2rem;
+    background: rgba(255, 255, 255, 0.02);
+    /* leve bloque para destacar */
+    padding: 0.8rem 1.6rem;
+    border-radius: 12px;
+    backdrop-filter: blur(3px);
+    flex-wrap: wrap;
 }
 
-.navbar-brand img {
-    width: 40px;
-    height: 40px;
-    margin-right: 0.5rem;
-    border: 2px solid var(--manya-amarillo);
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-}
-
-.navbar-brand img:hover {
-    transform: scale(1.1);
-}
-
-.navbar-nav .nav-link {
-    color: var(--manya-blanco) !important;
-    font-weight: 500;
-}
-
-.navbar-nav .nav-link.active,
-.navbar-nav .nav-link:hover {
-    color: var(--manya-amarillo) !important;
-}
-
-/* ========== HERO / HEADER ========== */
-header {
-    color: var(--manya-negro);
-    text-align: center;
-    padding: 3rem 1rem;
-}
-
-
-header h1,
-p {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px #000;
-    color: white;
-}
-
-header p {
-    font-size: 1.2rem;
-    text-shadow: 1px 1px 2px #000;
-}
-
-header img {
-    margin-top: 1rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    max-width: 100%;
+.escudo {
+    width: 120px;
     height: auto;
+    flex-shrink: 0;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.6));
 }
 
+h1 {
+    font-size: 3rem;
+    color: var(--yellow);
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: 1px;
+}
 
+/* Secciones */
+.section {
+    padding: 2rem 1rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-/* ========== SECCIONES ========== */
-main h2 {
-    color: white;
+h2 {
+    color: var(--yellow);
     margin-bottom: 1rem;
+    font-size: 1.6rem;
+    letter-spacing: 0.6px;
+}
+
+/* Tabla */
+.table-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+    overflow-x: auto;
+    /* permite scroll en pantallas pequeñas */
+}
+
+.table {
+    width: 100%;
+    max-width: 900px;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 700px;
+    /* fuerza scroll si hace falta en móviles */
+}
+
+.table th,
+.table td {
+    border: 1px solid rgba(255, 210, 0, 0.22);
+    padding: 10px 12px;
     text-align: center;
-    padding-top: 10px
-}
-
-main p {
-    color: var(--manya-negro);
-    text-align: center;
-}
-
-/* ========== TABLA DE POSICIONES ========== */
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: #FFF8B0;
-}
-
-.table-striped tbody tr:nth-of-type(even) {
-    background-color: #FFFFFF;
-}
-
-/* Resaltar Manya FC */
-.table tbody tr:first-child {
-    background-color: var(--manya-amarillo);
-    color: var(--manya-negro);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 0.95rem;
 }
 
 .table th {
-    background-color: var(--manya-negro);
-    color: var(--manya-amarillo);
+    background: var(--yellow);
+    color: #000;
+    font-weight: 700;
 }
 
-
-
-/* ========== GOLEADORES ========== */
-.list-group-item {
-    transition: background 0.3s, color 0.3s;
-}
-
-.list-group-item:hover {
-    background-color: var(--manya-amarillo);
-    color: var(--manya-negro);
-    cursor: pointer;
-}
-
-.list-group-item .badge {
-    background-color: var(--manya-negro);
-    color: var(--manya-amarillo);
-    font-weight: bold;
-}
-
-/* ========== CARDS (HISTORIA / GALERÍA) ========== */
-.card {
-    border: 2px solid var(--manya-amarillo);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    background-color: #FFF8B0;
-    /* amarillo suave al hover */
-}
-
-.card-title {
-    color: var(--manya-negro);
-    font-weight: bold;
-    text-align: center;
-}
-
-.card-text {
-    color: var(--manya-negro);
-    text-align: center;
-}
-
-.card img {
-    margin-top: 1rem;
-    width: 80px;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* ========== GALERÍA DE IMÁGENES ========== */
-.galeria img,
-.row img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.galeria img:hover,
-.row img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-}
-
-/* ========== FOOTER ========== */
-footer {
-    background-color: black;
-    color: var(--manya-blanco);
-    padding: 1rem 0;
-    text-align: center;
+/* Resultados / Goleadores (mismo estilo) */
+.resultado {
+    margin: 0.4rem auto;
+    background: rgba(255, 210, 0, 0.06);
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    max-width: 900px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
     font-weight: 500;
-    border-top: 3px solid var(--manya-amarillo);
+}
+
+.resultado strong {
+    color: var(--yellow);
+    margin-right: 0.4rem;
+}
+
+/* Carousel */
+.carousel {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.carousel-inner img {
+  flex: 0 0 100%;     /* cada imagen ocupa el 100% del ancho */
+  width: 100%;
+  height: 280px;      /* altura fija */
+  object-fit: contain;
+  background: #000;
 }
 
 
-/* ========== BOTONES ========== */
-.btn-dark {
-    background-color: var(--manya-negro);
-    border-color: var(--manya-negro);
+.carousel-footer {
+    text-align: center;
+    margin-top: 0.9rem;
+    color: var(--yellow);
+    font-weight: 600;
 }
 
-.btn-dark:hover {
-    background-color: var(--manya-amarillo);
-    color: var(--manya-negro);
-    border-color: var(--manya-negro);
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: var(--bg-nav);
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
 }
 
-/* ========== RESPONSIVE (Mobile First) ========== */
-@media (min-width: 480px) {
-    header h1 {
-        font-size: 2.8rem;
-    }
-
-    header p {
-        font-size: 1.3rem;
-    }
+footer a {
+    color: var(--yellow);
+    margin-left: 1rem;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-@media (min-width: 768px) {
-    header h1 {
-        font-size: 3rem;
-    }
+/* --------------------
+MEDIA QUERIES
+-------------------- */
 
-    header p {
-        font-size: 1.5rem;
-    }
-
-    .card-title {
-        font-size: 1.1rem;
-    }
-}
-
+/* Desktop grande */
 @media (min-width: 1024px) {
-    .card-title {
-        font-size: 1.25rem;
+    h1 {
+        font-size: 4rem;
+    }
+
+    .escudo {
+        width: 150px;
+    }
+
+    .table th,
+    .table td {
+        font-size: 1rem;
+        padding: 12px 14px;
+    }
+}
+
+/* Tablet / móviles grandes */
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;
+    }
+
+    /* evitar problemas en algunos tablets */
+    .hero::before {
+        background: rgba(0, 0, 0, 0.68);
+    }
+
+    .hero-content {
+        flex-direction: column;
+        padding: 1rem 1.2rem;
+    }
+
+    .escudo {
+        width: 100px;
+    }
+
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    .table {
+        min-width: 650px;
+    }
+}
+
+/* Smartphones medianos */
+@media (max-width: 480px) {
+    .navbar ul {
+        gap: 0.9rem;
+    }
+
+    .nav-action {
+        display: none;
+    }
+
+    .escudo {
+        width: 80px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .table {
+        min-width: 600px;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Smartphones muy chicos */
+@media (max-width: 350px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .escudo {
+        width: 68px;
+    }
+
+    .table {
+        min-width: 520px;
+    }
+
+    .table th,
+    .table td {
+        padding: 6px;
+        font-size: 0.75rem;
     }
 }

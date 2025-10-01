@@ -1,111 +1,54 @@
 {
-    "torneo": {
-        "nombre": "Liga Amateur 2025",
-        "tabla_posiciones": [
-            {
-                "equipo": "Manya FC",
-                "pj": 10,
-                "pg": 8,
-                "pe": 1,
-                "pp": 1,
-                "gf": 25,
-                "gc": 10,
-                "pts": 50
-            },
-            {
-                "equipo": "Rivales FC",
-                "pj": 10,
-                "pg": 6,
-                "pe": 2,
-                "pp": 2,
-                "gf": 18,
-                "gc": 12,
-                "pts": 20
-            },
-            {
-                "equipo": "Amigos FC",
-                "pj": 10,
-                "pg": 5,
-                "pe": 3,
-                "pp": 2,
-                "gf": 15,
-                "gc": 10,
-                "pts": 18
-            },
-            {
-                "equipo": "Manya FC",
-                "pj": 10,
-                "pg": 8,
-                "pe": 1,
-                "pp": 1,
-                "gf": 25,
-                "gc": 10,
-                "pts": 50
-            },
-            {
-                "equipo": "Rivales FC",
-                "pj": 10,
-                "pg": 6,
-                "pe": 2,
-                "pp": 2,
-                "gf": 18,
-                "gc": 12,
-                "pts": 20
-            },
-            {
-                "equipo": "Amigos FC",
-                "pj": 10,
-                "pg": 5,
-                "pe": 3,
-                "pp": 2,
-                "gf": 15,
-                "gc": 10,
-                "pts": 18
-            },
-            {
-                "equipo": "Manya FC",
-                "pj": 10,
-                "pg": 8,
-                "pe": 1,
-                "pp": 1,
-                "gf": 25,
-                "gc": 10,
-                "pts": 50
-            },
-            {
-                "equipo": "Rivales FC",
-                "pj": 10,
-                "pg": 6,
-                "pe": 2,
-                "pp": 2,
-                "gf": 18,
-                "gc": 12,
-                "pts": 20
-            },
-            {
-                "equipo": "Amigos FC",
-                "pj": 10,
-                "pg": 5,
-                "pe": 3,
-                "pp": 2,
-                "gf": 15,
-                "gc": 10,
-                "pts": 18
-            }
-        ]
-    },
-    "goleadores": [
+"tabla": [
+  { "equipo": "ITALIA FC", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
+  { "equipo": "LA DELIO FC", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
+  { "equipo": "LOS MALVEQUES", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
+  { "equipo": "EL PROGRESO", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
+  { "equipo": "REJ DEL CHAPO", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
+  { "equipo": "CAMIONEROS FC", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
+  { "equipo": "3 DE FEBRERO", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
+  { "equipo": "CHA77AREROX", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
+  { "equipo": "NOTTANSANTOS", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
+  { "equipo": "MANYA FC", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
+  { "equipo": "PRINGLES FC", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 }
+]
+,
+  "resultados": [
+    { "local": "MANYA FC", "visitante": "ITALIA FC", "golesLocal": "-", "golesVisitante": "-" },
+    { "local": "MANYA FC", "visitante": "LA DELIO FC", "golesLocal": "-", "golesVisitante": "-" },
+    { "local": "MANYA FC", "visitante": "LOS MALVEQUES", "golesLocal": "-", "golesVisitante": "-" },
+    { "local": "MANYA FC", "visitante": "EL PROGRESO", "golesLocal": "-", "golesVisitante": "-" },
+    { "local": "MANYA FC", "visitante": "REJ DEL CHAPO", "golesLocal": "-", "golesVisitante": "-" },
+    { "local": "MANYA FC", "visitante": "CAMIONEROS FC", "golesLocal": "-", "golesVisitante": "-" },
+    { "local": "MANYA FC", "visitante": "3 DE FEBRERO", "golesLocal": "-", "golesVisitante": "-" },
+    { "local": "MANYA FC", "visitante": "CHA77AREROX", "golesLocal": "-", "golesVisitante": "-" },
+    { "local": "MANYA FC", "visitante": "NOTTANSANTOS", "golesLocal": "-", "golesVisitante": "-" },
+    { "local": "MANYA FC", "visitante": "PRINGLES FC", "golesLocal": "-", "golesVisitante": "-" }
+  ],
+  "goleadores": [
+    { "jugador": "Jalil Karami", "goles": 0 },
+    { "jugador": "Agustin Gazzaneo", "goles": 0 },
+    { "jugador": "Franco Gazzaneo", "goles": 0 },
+    { "jugador": "Axel Farias", "goles": 0 },
+    { "jugador": "Nicolas Soardo", "goles": 0 },
+    { "jugador": "Nicolas Soria", "goles": 0 },
+    { "jugador": "Patricio Gargaglione", "goles": 0 },
+    { "jugador": "Matias Gomez", "goles": 0 },
+    { "jugador": "Eric Zang", "goles": 0 },
+    { "jugador": "Lucas Molina", "goles": 0 }
+  ],
+    "trofeos": [
         {
-            "nombre": "Axel Farias",
-            "goles": 0
+            "img": "img/trofeo1.jpg",
+            "titulo": "Torneo Apertura La Carlota 2023"
         },
         {
-            "nombre": "Agustin Gazzaneo",
-            "goles": 0
+            "img": "img/trofeo2.jpg",
+            "titulo": "Torneo Apertura Paso a Paso 2023"
         },
-        {
-            "nombre": "Patricio Gargaglione",
-            "goles": 0
+          {
+            "img": "img/trofeo3.jpg",
+            "titulo": "Torneo Clausura Paso a Paso 2023"
         }
     ]
 }

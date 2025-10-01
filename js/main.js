@@ -1,145 +1,104 @@
-// Función para cargar JSON
 async function cargarDatos() {
-    try {
-        const response = await fetch('data/data.json');
-        const data = await response.json();
+  try {
+    const res = await fetch("data/data.json");
+    if (!res.ok) throw new Error("No se pudo cargar data/data.json");
+    const data = await res.json();
 
-        mostrarTablaPosiciones(data.torneo.tabla_posiciones);
-        mostrarGoleadores(data.goleadores);
-        if (data.galeria) mostrarGaleria(data.galeria); // opcional si agregamos galería en JSON
-    } catch (error) {
-        console.error('Error al cargar datos:', error);
+    /* ---------------------------
+       ORDENAR
+       - Tabla: pts DESC, luego diferencia de gol (GF-GC), luego GF
+       - Goleadores: goles DESC
+       --------------------------- */
+    if (Array.isArray(data.tabla)) {
+      data.tabla.sort((a, b) => {
+        if ((b.pts - a.pts) !== 0) return b.pts - a.pts;
+        const gdA = (a.gf || 0) - (a.gc || 0);
+        const gdB = (b.gf || 0) - (b.gc || 0);
+        if ((gdB - gdA) !== 0) return gdB - gdA;
+        return (b.gf || 0) - (a.gf || 0);
+      });
     }
-}
 
-// Animación fade-in simple
-function fadeIn(element, delay = 0) {
-    element.style.opacity = 0;
-    element.style.transition = `opacity 0.6s ease ${delay}s`;
-    setTimeout(() => {
-        element.style.opacity = 1;
-    }, 50); // pequeño timeout para activar la transición
-}
-
-// Mostrar tabla de posiciones con fade-in fila por fila
-function mostrarTablaPosiciones(tabla) {
-  const contenedor = document.getElementById('tabla-posiciones');
-  if (!contenedor) return;
-
-  // Ordenar por puntos y diferencia de goles
-  tabla.sort((a, b) => {
-    const diffA = a.gf - a.gc;
-    const diffB = b.gf - b.gc;
-    if (b.pts !== a.pts) {
-      return b.pts - a.pts;
-    } else {
-      return diffB - diffA;
+    if (Array.isArray(data.goleadores)) {
+      data.goleadores.sort((a, b) => (b.goles || 0) - (a.goles || 0));
     }
-  });
 
-  let html = `
-    <h3 class="text-center mb-3">Tabla de Posiciones</h3>
-    <div class="table-responsive">
-      <table class="table table-striped table-bordered text-center">
-        <thead class="table-dark">
+    /* ---------------------------
+       PINTAR TABLA
+       --------------------------- */
+    const tabla = document.getElementById("tabla-posiciones");
+    tabla.innerHTML = `
+      <thead>
+        <tr>
+          <th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>Pts</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${ (data.tabla || []).map(eq => `
           <tr>
-            <th>Equipo</th>
-            <th>PJ</th>
-            <th>PG</th>
-            <th>PE</th>
-            <th>PP</th>
-            <th>GF</th>
-            <th>GC</th>
-            <th>Pts</th>
+            <td>${eq.equipo || ''}</td>
+            <td>${eq.pj ?? ''}</td>
+            <td>${eq.pg ?? ''}</td>
+            <td>${eq.pe ?? ''}</td>
+            <td>${eq.pp ?? ''}</td>
+            <td>${eq.gf ?? ''}</td>
+            <td>${eq.gc ?? ''}</td>
+            <td>${eq.pts ?? ''}</td>
           </tr>
-        </thead>
-        <tbody>
-  `;
-
-  tabla.forEach(fila => {
-    // Asegurarse que solo Manya FC tenga negrita
-    const esManya = fila.equipo.toLowerCase() === 'manya fc';
-    const claseManya = esManya ? 'fw-bold' : '';
-    html += `
-      <tr class="${claseManya}">
-        <td>${fila.equipo}</td>
-        <td>${fila.pj}</td>
-        <td>${fila.pg}</td>
-        <td>${fila.pe}</td>
-        <td>${fila.pp}</td>
-        <td>${fila.gf}</td>
-        <td>${fila.gc}</td>
-        <td>${fila.pts}</td>
-      </tr>
+        `).join('') }
+      </tbody>
     `;
-  });
 
-  html += `
-        </tbody>
-      </table>
-    </div>
-  `;
-
-  contenedor.innerHTML = html;
-
-  // Fade-in fila por fila
-  const filas = contenedor.querySelectorAll('tbody tr');
-  filas.forEach((fila, index) => fadeIn(fila, index * 0.1));
-}
-
-
-
-// Mostrar goleadores con fade-in
-function mostrarGoleadores(goleadores) {
-  const contenedor = document.getElementById('tabla-goleadores');
-  if (!contenedor) return;
-
-  // Ordenar por goles descendente
-  goleadores.sort((a, b) => b.goles - a.goles);
-
-  let html = `
-    <h3 class="text-center mb-3">Goleadores</h3>
-    <ul class="list-group list-group-flush">
-  `;
-
-  goleadores.forEach(jugador => {
-    html += `<li class="list-group-item d-flex justify-content-between align-items-center">
-               ${jugador.nombre}
-               <span class="badge bg-dark rounded-pill">${jugador.goles}</span>
-             </li>`;
-  });
-
-  html += `</ul>`;
-
-  contenedor.innerHTML = html;
-
-  // Fade-in de cada item
-  const items = contenedor.querySelectorAll('li');
-  items.forEach((item, index) => fadeIn(item, index * 0.1));
-}
-
-
-// Mostrar galería (opcional) con fade-in
-function mostrarGaleria(imagenes) {
-    const contenedor = document.getElementById('galeria');
-    if (!contenedor) return;
-
-    let html = '<div class="row g-3">';
-    imagenes.forEach((imgSrc, index) => {
-        html += `
-      <div class="col-6 col-md-4 col-lg-3">
-        <img src="${imgSrc}" class="img-fluid rounded" alt="Foto ${index + 1}">
+    /* ---------------------------
+       RESULTADOS (todos)
+       --------------------------- */
+    const resultados = document.getElementById("lista-resultados");
+    resultados.innerHTML = (data.resultados || []).map(r => `
+      <div class="resultado">
+        <strong>${r.fecha || ''}:</strong> ${r.local || ''} ${r.golesLocal ?? ''} - ${r.golesVisitante ?? ''} ${r.visitante || ''}
       </div>
-    `;
-    });
-    html += '</div>';
+    `).join('');
 
-    contenedor.innerHTML = html;
+    /* ---------------------------
+       GOLEADORES (mismo formato que resultados)
+       --------------------------- */
+    const goleadoresDiv = document.getElementById("lista-goleadores");
+    goleadoresDiv.innerHTML = (data.goleadores || []).map(g => `
+      <div class="resultado">
+        <strong>${g.jugador || ''}</strong> - ${g.goles ?? 0} goles
+      </div>
+    `).join('');
 
-    // Aplicar fade-in con delay a cada imagen
-    const imgs = contenedor.querySelectorAll('img');
-    imgs.forEach((img, index) => fadeIn(img, index * 0.1));
+    /* ---------------------------
+       CAROUSEL
+       --------------------------- */
+    const carouselInner = document.getElementById("carousel-inner");
+    const carouselFooter = document.getElementById("carousel-footer");
+
+    if (Array.isArray(data.trofeos) && data.trofeos.length > 0) {
+      carouselInner.innerHTML = data.trofeos.map(t => `<img src="${t.img}" alt="${t.titulo || ''}">`).join('');
+      let index = 0;
+      function mostrarSlide(i) {
+        carouselInner.style.transform = `translateX(-${i * 100}%)`;
+        carouselFooter.textContent = data.trofeos[i].titulo || '';
+      }
+      mostrarSlide(index);
+      setInterval(() => {
+        index = (index + 1) % data.trofeos.length;
+        mostrarSlide(index);
+      }, 3500);
+    } else {
+      carouselInner.innerHTML = '<div class="no-trofeos">No hay trofeos cargados</div>';
+      carouselFooter.textContent = '';
+    }
+
+  } catch (err) {
+    console.error("Error cargando datos:", err);
+    const tabla = document.getElementById("tabla-posiciones");
+    tabla.innerHTML = '<tr><td colspan="8">Error cargando datos</td></tr>';
+    document.getElementById("lista-resultados").innerHTML = '<div class="resultado">Error cargando resultados</div>';
+    document.getElementById("lista-goleadores").innerHTML = '<div class="resultado">Error cargando goleadores</div>';
+  }
 }
 
-// Ejecutar al cargar la página
-document.addEventListener('DOMContentLoaded', cargarDatos);
+cargarDatos();
