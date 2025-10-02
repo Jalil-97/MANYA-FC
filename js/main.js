@@ -8,7 +8,7 @@ async function cargarDatos() {
        ORDENAR
        - Tabla: pts DESC, luego diferencia de gol (GF-GC), luego GF
        - Goleadores: goles DESC
-       --------------------------- */
+    --------------------------- */
     if (Array.isArray(data.tabla)) {
       data.tabla.sort((a, b) => {
         if ((b.pts - a.pts) !== 0) return b.pts - a.pts;
@@ -25,7 +25,7 @@ async function cargarDatos() {
 
     /* ---------------------------
        PINTAR TABLA
-       --------------------------- */
+    --------------------------- */
     const tabla = document.getElementById("tabla-posiciones");
     tabla.innerHTML = `
       <thead>
@@ -51,7 +51,7 @@ async function cargarDatos() {
 
     /* ---------------------------
        RESULTADOS (todos)
-       --------------------------- */
+    --------------------------- */
     const resultados = document.getElementById("lista-resultados");
     resultados.innerHTML = (data.resultados || []).map(r => `
       <div class="resultado">
@@ -61,7 +61,7 @@ async function cargarDatos() {
 
     /* ---------------------------
        GOLEADORES (mismo formato que resultados)
-       --------------------------- */
+    --------------------------- */
     const goleadoresDiv = document.getElementById("lista-goleadores");
     goleadoresDiv.innerHTML = (data.goleadores || []).map(g => `
       <div class="resultado">
@@ -70,23 +70,34 @@ async function cargarDatos() {
     `).join('');
 
     /* ---------------------------
-       CAROUSEL
-       --------------------------- */
+       CAROUSEL (fade)
+    --------------------------- */
     const carouselInner = document.getElementById("carousel-inner");
     const carouselFooter = document.getElementById("carousel-footer");
 
     if (Array.isArray(data.trofeos) && data.trofeos.length > 0) {
       carouselInner.innerHTML = data.trofeos.map(t => `<img src="${t.img}" alt="${t.titulo || ''}">`).join('');
-      let index = 0;
-      function mostrarSlide(i) {
-        carouselInner.style.transform = `translateX(-${i * 100}%)`;
-        carouselFooter.textContent = data.trofeos[i].titulo || '';
+
+      let currentIndex = 0;
+      const slides = carouselInner.querySelectorAll("img");
+
+      function showSlide(index) {
+        slides.forEach((img, i) => {
+          img.classList.remove("active");
+        });
+        slides[index].classList.add("active");
+        carouselFooter.textContent = data.trofeos[index].titulo || '';
       }
-      mostrarSlide(index);
-      setInterval(() => {
-        index = (index + 1) % data.trofeos.length;
-        mostrarSlide(index);
-      }, 3500);
+
+      function nextSlide() {
+        currentIndex++;
+        if (currentIndex >= slides.length) currentIndex = 0;
+        showSlide(currentIndex);
+      }
+
+      showSlide(currentIndex);
+      setInterval(nextSlide, 3500);
+
     } else {
       carouselInner.innerHTML = '<div class="no-trofeos">No hay trofeos cargados</div>';
       carouselFooter.textContent = '';
