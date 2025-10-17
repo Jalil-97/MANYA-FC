@@ -1,40 +1,45 @@
 {
 "tabla": [
-  { "equipo": "ITALIA FC", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
-  { "equipo": "LA DELIO FC", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
-  { "equipo": "LOS MALVEQUES", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
-  { "equipo": "EL PROGRESO", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
-  { "equipo": "REJUNTE DEL CHAPO", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
-  { "equipo": "CAMIONEROS FC", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
-  { "equipo": "3 DE FEBRERO", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
-  { "equipo": "CHA77AREROX", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
-  { "equipo": "NOTTANSANTOS", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
-  { "equipo": "MANYA FC", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 },
-  { "equipo": "PRINGLES FC", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 }
+  { "equipo": "ITALIA FC", "pj": 3, "pg": 1, "pe": 0, "pp": 2, "gf": 6, "gc": 8, "pts": 2 },
+  { "equipo": "LA DELIO FC", "pj": 3, "pg": 0, "pe": 0, "pp": 3, "gf": 6, "gc": 13, "pts": 0 },
+  { "equipo": "LOS MALVEQUES", "pj": 2, "pg": 0, "pe": 0, "pp": 2, "gf": 4, "gc": 15, "pts": 0 },
+  { "equipo": "EL PROGRESO FC", "pj": 3, "pg": 2, "pe": 0, "pp": 1, "gf": 13, "gc": 8, "pts": 4 },
+  { "equipo": "REJUNTE DEL CHAPO", "pj": 2, "pg": 2, "pe": 0, "pp": 0, "gf": 13, "gc": 3, "pts": 4 },
+  { "equipo": "CAMIONEROS FC", "pj": 2, "pg": 2, "pe": 0, "pp": 0, "gf": 18, "gc": 7, "pts": 4 },
+  { "equipo": "TRES DE FEBRERO", "pj": 2, "pg": 2, "pe": 0, "pp": 0, "gf": 16, "gc": 9, "pts": 4 },
+  { "equipo": "CHA77AREROX", "pj": 2, "pg": 1, "pe": 1, "pp": 0, "gf": 6, "gc": 4, "pts": 3 },
+  { "equipo": "NOTTANSANTOS", "pj": 3, "pg": 2, "pe": 1, "pp": 0, "gf": 8, "gc": 2, "pts": 5 },
+  { "equipo": "MANYA FC", "pj": 2, "pg": 1, "pe": 0, "pp": 1, "gf": 5, "gc": 10, "pts": 2 },
+  { "equipo": "PRINGLES FC", "pj": 2, "pg": 0, "pe": 1, "pp": 1, "gf": 4, "gc": 6, "pts": 1 },
+  { "equipo": "COLMURANO", "pj": 2, "pg": 1, "pe": 0, "pp": 1, "gf": 2, "gc": 4, "pts": 2 },
+  { "equipo": "RIVADAVIA", "pj": 2, "pg": 0, "pe": 1, "pp": 1, "gf": 5, "gc": 8, "pts": 1 },
+  { "equipo": "A TRES TOQUES FC", "pj": 0, "pg": 0, "pe": 0, "pp": 0, "gf": 0, "gc": 0, "pts": 0 }
+
+
 ]
 ,
   "resultados": [
+
+
+    { "local": "MANYA FC", "visitante": "ANSALDI FC", "golesLocal": "3", "golesVisitante": "0" },
+    { "local": "MANYA FC", "visitante": "CAMIONEROS FC", "golesLocal": "2", "golesVisitante": "10" },
+    { "local": "MANYA FC", "visitante": "TRES DE FEBRERO", "golesLocal": "-", "golesVisitante": "-" },
+    { "local": "MANYA FC", "visitante": "EL PROGRESO FC", "golesLocal": "-", "golesVisitante": "-" },
+    { "local": "MANYA FC", "visitante": "COLMURANO", "golesLocal": "-", "golesVisitante": "-" },
     { "local": "MANYA FC", "visitante": "ITALIA FC", "golesLocal": "-", "golesVisitante": "-" },
-    { "local": "MANYA FC", "visitante": "LA DELIO FC", "golesLocal": "-", "golesVisitante": "-" },
-    { "local": "MANYA FC", "visitante": "LOS MALVEQUES", "golesLocal": "-", "golesVisitante": "-" },
-    { "local": "MANYA FC", "visitante": "EL PROGRESO", "golesLocal": "-", "golesVisitante": "-" },
-    { "local": "MANYA FC", "visitante": "REJUNTE DEL CHAPO", "golesLocal": "-", "golesVisitante": "-" },
-    { "local": "MANYA FC", "visitante": "CAMIONEROS FC", "golesLocal": "-", "golesVisitante": "-" },
-    { "local": "MANYA FC", "visitante": "3 DE FEBRERO", "golesLocal": "-", "golesVisitante": "-" },
-    { "local": "MANYA FC", "visitante": "CHA77AREROX", "golesLocal": "-", "golesVisitante": "-" },
-    { "local": "MANYA FC", "visitante": "NOTTANSANTOS", "golesLocal": "-", "golesVisitante": "-" },
-    { "local": "MANYA FC", "visitante": "PRINGLES FC", "golesLocal": "-", "golesVisitante": "-" }
+    { "local": "MANYA FC", "visitante": "LA DELIO FC", "golesLocal": "-", "golesVisitante": "-" }
+
   ],
   "goleadores": [
     { "jugador": "Jalil Karami", "goles": 0 },
-    { "jugador": "Agustin Gazzaneo", "goles": 0 },
+    { "jugador": "Agustin Gazzaneo", "goles": 3 },
     { "jugador": "Franco Gazzaneo", "goles": 0 },
-    { "jugador": "Axel Farias", "goles": 0 },
+    { "jugador": "Axel Farias", "goles": 1 },
     { "jugador": "Nicolas Soardo", "goles": 0 },
     { "jugador": "Nicolas Soria", "goles": 0 },
     { "jugador": "Patricio Gargaglione", "goles": 0 },
     { "jugador": "Matias Gomez", "goles": 0 },
-    { "jugador": "Eric Zang", "goles": 0 },
+    { "jugador": "Eric Zang", "goles": 1 },
     { "jugador": "Lucas Molina", "goles": 0 }
   ],
     "trofeos": [
@@ -49,6 +54,15 @@
           {
             "img": "img/trofeo3.jpg",
             "titulo": "Torneo Clausura Paso a Paso 2023"
+        },
+          {
+            "img": "img/trofeo4.jpg",
+            "titulo": "Copa Navidad Paso a Paso 2023"
+        },
+          {
+            "img": "img/trofeo5.jpg",
+            "titulo": "Copa de Plata La Carlota 2023"
         }
+
     ]
 }
